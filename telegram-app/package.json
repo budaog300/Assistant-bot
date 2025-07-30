@@ -1,0 +1,15 @@
+{
+  "name": "telegram-app",
+  "version": "1.0.0",
+  "description": "telebot on node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yager",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "node-telegram-bot-api": "^0.66.0"
+  }
+}

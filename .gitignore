@@ -1,0 +1,54 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.swp
+*.bak
+*.log
+*.pot
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Environment variables
+.env
+*.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# IDE specific
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Build and dist folders
+dist/
+build/
+out/
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# System files
+.DS_Store
+Thumbs.db
+
+files-example/
+*.pdf
+*.txt

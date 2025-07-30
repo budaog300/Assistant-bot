@@ -1,6 +1,6 @@
 from PyPDF2 import PdfReader
 import pathlib
-mypath = "files-example"
+mypath = "yandex-assistant/files-example"
 def read_file(file):
     res = []
     try:

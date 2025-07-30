@@ -205,11 +205,11 @@ def main():
         input_text = input(
             'Введите ваш вопрос ассистенту ("exit" - чтобы завершить диалог): '
         ).strip()
-        json.dumps(
-            {
-                "answer": answer,                
-            }
-        )
+        
+        response = {
+            "answer": answer,  
+        }
+        json.dumps(response)
     # Удаляем все ненужное.
     search_index.delete()
     thread.delete()

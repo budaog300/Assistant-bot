@@ -23,15 +23,23 @@ bot.on ('message', async msg => {
     );
   } else if (message) {
     try {
+      const waitText = await bot.sendMessage (chatId, 'Запрос отправлен');
       const response = await axios.post (SERVERURL, {
         chatId: chatId,
         question: message,
       });
-      bot.sendMessage (chatId, `Вам ответ с сервера ${response.data.answer}`);
+      let answer = response.data.answer;
+      await bot.editMessageText (answer, {
+        chat_id: waitText.chat.id,
+        message_id: waitText.message_id,
+      });
       console.log (response.data.answer);
     } catch (error) {
       console.log (error);
-      bot.sendMessage (chatId, 'Произошла ошибка при обработке сообщения!');
+      await bot.sendMessage (
+        chatId,
+        'Произошла ошибка при обработке сообщения!'
+      );
     }
   }
 });
@@ -39,7 +47,7 @@ const commands = [
   {
     command: 'start',
     description: 'Запуск бота',
-  },  
+  },
   {
     command: 'help',
     description: 'Раздел помощи',

@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from yandex_assistant import Assistant
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
+import asyncio
 
 app = FastAPI()
 assistant = Assistant()
@@ -41,7 +42,6 @@ async def ask_question(request: Question):
         print(f'{e}')
         return {'error': str(e)}
     
-
 
 @app.on_event("shutdown")
 def shutdown_event():

@@ -1,6 +1,7 @@
 const http = require ('http');
 const axios = require ('axios');
 const express = require ('express');
+const {realpathSync} = require ('fs');
 const app = express ();
 const PORT = 3000;
 
@@ -13,14 +14,17 @@ app.post ('/ask', async (req, res) => {
       return res.status (400).json ({error: 'Введите сообщение!'});
     }
     console.log (question);
-    const response = await axios.post('http://127.0.0.1:8000', {
-      question: question
-    })
-    res.json ({
-      answer: 'Спасибо за вопрос!',
+    const response = await axios.post ('http://127.0.0.1:8000/ask', {
+      query: question,
     });
+    console.log (response.data);
+    res.json ({
+      answer: response.data.answer,
+    });
+    response.data = {};
   } catch (error) {
     console.error ('Error:', error);
+    return res.status (500).json (error);
   }
 });
 
